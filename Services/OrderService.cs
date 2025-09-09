@@ -1,5 +1,4 @@
-﻿using EF_Home_Work_Seven_.context;
-using StoreAppProject.Database;
+﻿using EF_Home_Work_Seven_.Context;
 using StoreAppProject.Models;
 using StoreAppProject.Services.Abstract;
 

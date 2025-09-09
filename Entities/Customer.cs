@@ -1,7 +1,5 @@
 ﻿using StoreAppProject.Enums;
-
 namespace StoreAppProject.Models;
-
 public class Customer : BaseModel
 {
     public string Name { get; set; }

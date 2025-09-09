@@ -1,5 +1,5 @@
-﻿using EF_Home_Work_Seven_.context;
-using StoreAppProject.Database;
+﻿using EF_Home_Work_Seven_.Context;
+using Microsoft.EntityFrameworkCore.Storage;
 using StoreAppProject.Exceptions;
 using StoreAppProject.Models;
 using StoreAppProject.Services.Abstract;
@@ -14,12 +14,12 @@ public class ProductService : BaseService, IProductService
 
     public void Add(Product item)
     {
-        _database.Products.Add(item);
+        _database.Product.Add(item);
     }
 
     public List<Product> GetAll()
     {
-        return _database.Products;
+        return _database.Product.ToList();
     }
 
     public Product GetById(int id)
@@ -33,7 +33,7 @@ public class ProductService : BaseService, IProductService
         //    }
         //    return null;
 
-        var product = _database.Products.FirstOrDefault(p => p.Id == id);
+        var product = _database.Product.FirstOrDefault(p => p.Id == id);
         if (product is null)
         {
             throw new ProductNotFoundException();
@@ -43,7 +43,7 @@ public class ProductService : BaseService, IProductService
 
     public Product GetByName(string name)
     {
-        return _database.Products.FirstOrDefault(p => p.Name == name);
+        return _database.Product.FirstOrDefault(p => p.Name == name);
     }
 
     public void Remove(Product item)
@@ -51,7 +51,7 @@ public class ProductService : BaseService, IProductService
         var productToRemove = GetById(item.Id);
         if (productToRemove != null)
         {
-            _database.Products.Remove(productToRemove);
+            _database.Product.Remove(productToRemove);
         }
     }
 }

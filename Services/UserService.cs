@@ -1,5 +1,4 @@
-﻿using EF_Home_Work_Seven_.context;
-using StoreAppProject.Database;
+﻿using EF_Home_Work_Seven_.Context;
 using StoreAppProject.Models;
 using StoreAppProject.Services.Abstract;
 using System.Security.Cryptography;
@@ -15,7 +14,7 @@ public class UserService : BaseService, IUserService
     public bool SignIn(string username, string password)
     {
         bool sign = false;
-        var users = _database.Users;
+        var users = _database.User;
         foreach (var user in users)
         {
             if (user.Username == username && user.Password == password)
@@ -33,6 +32,6 @@ public class UserService : BaseService, IUserService
             Username = username,
             Password = password
         };
-        _database.Users.Add(user);
+        _database.User.Add(user);
     }
 }
