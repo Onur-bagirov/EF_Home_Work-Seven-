@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StoreAppProject.Models;
-
 namespace EF_Home_Work_Seven_.context
 {
     internal class StoreAppDatabase : DbContext

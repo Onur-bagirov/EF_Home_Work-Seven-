@@ -11,5 +11,4 @@ public abstract class BaseService
     {
         _database = database;
     }
-
 }
